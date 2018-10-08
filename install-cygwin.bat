@@ -56,28 +56,10 @@ echo.                                                                   >> %DLOA
 
 rem Install base cygwin
 cscript /nologo %DLOAD_SCRIPT% https://cygwin.com/setup-%CPU%.exe setup-%CPU%.exe
-setup-%CPU% --no-admin --root %CYGWIN_BASE% --quiet-mode --no-shortcuts --site ftp://mirror.switch.ch/mirror/cygwin/ --categories Base -l %CYGWIN_BASE%\var\cache\apt\packages --packages dos2unix,ncurses,wget,gcc-g++,make,vim,git
-
-rem Install apt-cyg package manager
-%CYGWIN_BASE%\bin\wget -O /bin/apt-cyg https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
-%CYGWIN_BASE%\bin\chmod +x /bin/apt-cyg
-
-rem Create home directory
-"%CYGWIN_BASE%\bin\bash" --login -c echo "Creating home directory..."
-
-rem Create desktop shortcut
-set SHORTCUT_SCRIPT=%TEMP%\shortcut-%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs
-echo Set oWS = WScript.CreateObject("WScript.Shell")                    >  "%SHORTCUT_SCRIPT%"
-echo sLinkFile = "%USERPROFILE%\Desktop\Cygwin.lnk"                     >> "%SHORTCUT_SCRIPT%"
-echo Set oLink = oWS.CreateShortcut(sLinkFile)                          >> "%SHORTCUT_SCRIPT%"
-echo oLink.TargetPath = "%CYGWIN_BASE%\bin\mintty.exe"                  >> "%SHORTCUT_SCRIPT%"
-echo oLink.Arguments = "-"                                              >> "%SHORTCUT_SCRIPT%"
-echo oLink.Save                                                         >> "%SHORTCUT_SCRIPT%"
-cscript /nologo "%SHORTCUT_SCRIPT%"
+setup-%CPU% --no-admin --root %CYGWIN_BASE% --quiet-mode --no-shortcuts --site ftp://mirror.switch.ch/mirror/cygwin/ --categories Base -l %CYGWIN_BASE%\var\cache\apt\packages --packages dos2unix,ncurses,wget,make,vim,ed,flex,bison,nasm
 
 rem Cleanup
 del "%DLOAD_SCRIPT%"
-del "%SHORTCUT_SCRIPT%"
 set CYGWIN_BASE=
 set CPU=
 set DLOAD_SCRIPT=
