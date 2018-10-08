@@ -17,7 +17,6 @@ goto exit
 
 :install
 echo About to install Cygwin %CPU% on %CYGWIN_BASE%
-pause
 
 mkdir "%CYGWIN_BASE%"
 cd %CYGWIN_BASE%
@@ -68,4 +67,3 @@ set SHORTCUT_SCRIPT=
 echo Cygwin is now installed!
 
 :exit
-pause
