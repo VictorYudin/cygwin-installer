@@ -55,7 +55,7 @@ echo.                                                                   >> %DLOA
 
 rem Install base cygwin
 cscript /nologo %DLOAD_SCRIPT% https://cygwin.com/setup-%CPU%.exe setup-%CPU%.exe
-setup-%CPU% --no-admin --root %CYGWIN_BASE% --quiet-mode --no-shortcuts --site ftp://mirror.switch.ch/mirror/cygwin/ --categories Base -l %CYGWIN_BASE%\var\cache\apt\packages --packages dos2unix,ncurses,wget,make,vim,ed,flex,bison,nasm
+setup-%CPU% --no-admin --root %CYGWIN_BASE% --quiet-mode --no-shortcuts --site http://cygwin.mirror.constant.com/ --categories Base -l %CYGWIN_BASE%\var\cache\apt\packages --packages dos2unix,ncurses,wget,make,vim,ed,flex,bison,nasm
 
 rem Cleanup
 del "%DLOAD_SCRIPT%"
